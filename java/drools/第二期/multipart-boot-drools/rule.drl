@@ -1,0 +1,89 @@
+package rules;
+dialect "java"
+
+import java.util.*;
+import com.kagura.service.*;
+import com.kagura.entity.*;
+
+global UserService userService;
+
+
+
+
+//rule "评估double类型，且double为0d - test01"
+//when
+//    $d : Double($d == 0)
+////    $d : Double(this == 0)
+//then
+//    System.err.println("test01 : " + $d);
+//end
+
+//
+// 总结：
+// 1. 接同类型对象
+// 2. 满足括号中的规则
+// 3. 多个规则需要根据配置同时满足
+
+// or = ||
+// , = and = &&
+//rule "评估用户 - test02"
+//when
+//    $u : UserInfo(name == "张" || name == "李");
+////    $u : UserInfo(name == "张" || name == "李", age == 20)
+//then
+//    System.err.println("test02 : " + $u);
+//end
+//
+
+//rule "评估用户List - test03"
+//when
+//    $u : UserInfo(interests.get(0) == "tea");
+////    $u : UserInfo(interests[0] == "tea");
+//then
+//    System.err.println("test03 : " + $u);
+//end
+
+
+//rule "评估用户Map - test04"
+//when
+//    $u : UserInfo(tags.get("job") == "se");
+////    $u : UserInfo(tags["job"] == "se");
+//then
+//    System.err.println("test04 : " + $u);
+//end
+
+// 总结：
+// List   .get()   List[]
+// Map    .get()   Map[]
+
+
+//rule "包含contains - test05"
+//when
+//    $u : UserInfo(interests contains "tea");
+//then
+//    System.err.println("test05 : " + $u);
+//end
+//
+//rule "被包含memberOf - test06"
+//when
+//    $u : UserInfo("tea" memberOf interests);
+//then
+//    System.err.println("test06 : " + $u);
+//end
+
+
+//rule "正则memberOf - test07"
+//when
+//    $u : UserInfo(name matches "Tony.*");
+//then
+//    System.err.println("test07 : " + $u);
+//end
+
+
+rule "from memberOf - test08"
+when
+    $u : UserInfo();
+    $s : String(this == "tea" || this == "coffee") from $u.interests;
+then
+    System.err.println("test08 : " + $s);
+end
