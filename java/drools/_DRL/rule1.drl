@@ -1,0 +1,13 @@
+package rules;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+global AtomicInteger RIGHT;
+rule "rule 01"
+when
+    $s:String(this matches "C.*")
+then
+    System.err.println("匹配成功 : " + $s);
+	RIGHT.incrementAndGet();
+end
+

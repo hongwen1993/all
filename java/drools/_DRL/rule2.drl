@@ -1,0 +1,15 @@
+package rules;
+
+rule "规则1"
+when
+    $d:Double($d >= 0)
+then
+    System.err.println($d + "大于等于0");
+end
+
+rule "规则2"
+when
+    $d:Double($d < 0)
+then
+    System.err.println($d + "小于0");
+end
