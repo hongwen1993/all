@@ -1,5 +1,0 @@
-build-vs2015/buttonrpc-demo/Release/
-build-vs2015/buttonrpc-demo/buttonrpc-demo.VC.db
-*.ipdb
-*.pdb
-*.iobj
