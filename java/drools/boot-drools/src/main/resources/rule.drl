@@ -1,8 +1,0 @@
-package rules;
-
-rule "rule 02"
-when
-    $d:Double($d == 0)
-then
-    System.err.println($d);
-end

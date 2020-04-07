@@ -1,0 +1,21 @@
+package rules;
+
+global java.lang.Boolean isEnable;
+
+rule "rule 01"
+when
+    $d:Double($d == 0)
+then
+    System.err.println("rule 01");
+    System.err.println($d);
+    System.out.println("tf : " + isEnable);
+end
+
+rule "rule 02"
+when
+    $d:Double($d == 1)
+then
+    System.err.println("rule 02");
+    System.err.println($d);
+    System.out.println("tf : " + isEnable);
+end

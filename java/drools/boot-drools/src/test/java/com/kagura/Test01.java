@@ -23,15 +23,12 @@ public class Test01 {
     @Autowired
     private KieTemplate kieTemplate;
 
-    @Before
-    public void before() throws InterruptedException {
-        Thread.sleep(1000);
-    }
 
     // 2.获取指定的规则文件，生成KieSession
     @Test
     public void test01() {
         KieSession session = kieTemplate.getKieSession("rule.drl");
+        session.setGlobal("isEnable", true);
         session.insert(1d);
         session.fireAllRules();
     }
