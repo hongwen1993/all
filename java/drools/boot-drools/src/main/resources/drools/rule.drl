@@ -1,21 +1,31 @@
 package rules;
 
+import com.kagura.entity.Person;
+import org.slf4j.Logger;
+
 global java.lang.Boolean isEnable;
+global Logger log;
 
 rule "rule 01"
 when
     $d:Double($d == 0)
 then
-    System.err.println("rule 01");
-    System.err.println($d);
-    System.out.println("tf : " + isEnable);
+    log.info("执行规则01");
+    log.info("isEnable=>{}", isEnable);
 end
 
 rule "rule 02"
 when
     $d:Double($d == 1)
 then
-    System.err.println("rule 02");
-    System.err.println($d);
-    System.out.println("tf : " + isEnable);
+    log.info("执行规则02");
+    log.info("isEnable=>{}", isEnable);
+end
+
+rule "rule 03"
+when
+    $d:Person()
+then
+    log.info("执行规则03");
+    $d.setAge(99);
 end

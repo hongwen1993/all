@@ -20,6 +20,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <fast-drools.version>8.0.6</fast-drools.version>
     </properties>
 
 
@@ -35,7 +36,7 @@
         <dependency>
             <groupId>com.github.hongwen1993</groupId>
             <artifactId>fast-drools-spring-boot-starter</artifactId>
-            <version>2.1.9</version>
+            <version>${fast-drools.version}</version>
         </dependency>
     </dependencies>
 
